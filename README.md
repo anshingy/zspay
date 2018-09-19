@@ -4,4 +4,4 @@
 
 >**郑重申明：本项目为开源程序，仅做技术交流使用**
 
->演示地址：http://faka.zlkb.net/
+>演示地址：hhttps://zspay.zlkb.net/
