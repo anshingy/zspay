@@ -123,9 +123,6 @@ CREATE TABLE `t_email` (
 -- 转存表中的数据 `t_email`
 --
 
-INSERT INTO `t_email` (`id`, `mailaddress`, `mailpassword`, `sendmail`, `sendname`, `port`, `host`) VALUES
-(1, 'noreply@zlkb.net', 'Oneday0313', 'noreply@zlkb.net', '资料空白', '465', 'smtp.exmail.qq.com');
-
 -- --------------------------------------------------------
 
 --
@@ -414,7 +411,7 @@ ALTER TABLE `t_config_cat`
 -- 使用表AUTO_INCREMENT `t_email`
 --
 ALTER TABLE `t_email`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- 使用表AUTO_INCREMENT `t_email_code`
