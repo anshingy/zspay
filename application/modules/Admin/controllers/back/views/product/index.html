@@ -1,0 +1,39 @@
+<?php include COMMON_PATH.'/header.html';?>
+<div class="layui-container fly-marginTop fly-user-main">
+    <?php include COMMON_PATH.'/product-nav.html';?>
+    <div class="fly-panel fly-panel-user" pad20>
+        <div class="layui-tab layui-tab-brief" lay-filter="user">
+            <ul class="layui-tab-title" id="LAY_mine">
+                <li data-type="collection" class="layui-this" lay-id="collection">出售资源</li>
+				<li class="" lay-id="info"><a href="/member/product/add/">发布</a></li>
+            </ul>
+            <div class="layui-tab-content" style="padding: 20px 0;">
+                <div class="layui-tab-item layui-show">
+                    <table class="layui-table" id="table"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/html" id="qty">
+    {{# if(d.stockcontrol >0){ }}
+        {{d.qty}}
+    {{# } else { }}
+        <span class="layui-badge layui-bg-gray">不限量</span>
+    {{# } }}
+</script>
+<script type="text/html" id="opt">
+	<a class="layui-btn layui-btn-warm layui-btn-xs" href="/member/product/edit?hashid={{d.hashid}}">编辑</a>
+</script>
+<script type="text/html" id="active">
+    {{# if(d.active >0){ }}
+    <span class="layui-badge layui-bg-green">在售</span>
+    {{# } else { }}
+    <span class="layui-badge layui-bg-gray">停售</span>
+    {{# } }}
+</script>
+<!--引入公共底文件-->
+<?php include COMMON_PATH.'/footer.html';?>
+<script>
+    layui.use('memberproduct');
+</script>

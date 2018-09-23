@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>扫码支付 - 知识付费平台</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="width=device-width,initial-scale=1,user-scalable=no" name="viewport" />
+    <link rel="stylesheet" href="/api/layer_v3/theme/default/layer.css" />
+	<link rel="stylesheet" href="/api/style.css" />
+</head>
+<body>
+    <script>
+        window.PREPAY_TOKEN = '<?php echo $token;?>';
+        window.BUY_URL = '<?php echo $session_params['url'];?>';
+        window.HASH_ID = '<?php echo $session_params['hash_id'];?>';
+        window.CONTACT = '<?php echo $session_params['contact'];?>';
+        window.PRICE = '<?php echo $product['price'];?>';
+        window.SELLER_CONTACT = '<?php echo $product['contact'];?>';
+		window.REQUIREINPUT = '<?php echo $product['requireinput'];?>';
+    </script>
+    <script src="/api/js/checkout.js?<?php echo time();?>"></script>
+</body>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?fa4c1d6000a77ce6a8ea0a973151cf95";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>

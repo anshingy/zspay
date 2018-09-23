@@ -1,0 +1,81 @@
+<?php include COMMON_PATH.'/header.html';?>
+<div class="layui-container fly-marginTop fly-user-main">
+    <?php include COMMON_PATH.'/product-nav.html';?>
+    <div class="fly-panel fly-panel-user" pad20>
+        <div class="layui-tab layui-tab-brief" lay-filter="user">
+            <ul class="layui-tab-title" id="LAY_mine">
+                <li class="layui-this" lay-id="list">付费内容</li>
+                <li class="" lay-id="add"><a href="/member/productscard/add">添加</a></li>
+				<li class="" lay-id="addplus"><a href="/member/productscard/addplus">批量添加</a></li>
+            </ul>
+            <div class="layui-tab-content" style="padding: 20px 0;">
+                <div class="layui-form layui-form-pane layui-tab-item layui-show">
+                    <div class="layui-form-item layui-show">
+						<div class="layui-form layui-row layui-col-space10">
+							<div class="layui-col-xs12 layui-col-sm4 layui-col-md3 layui-col-lg2">
+								<select name="pid">
+									<option value="0" >筛选资源</option>
+                                    <?php if(!empty($products)):?>
+                                    <?php foreach($products AS $p):?>
+                                    <option value="<?php echo $p['id'];?>"><?php echo $p['name'];?></option>
+                                    <?php endforeach;?>
+                                    <?php endif;?>
+								</select>
+							</div>
+							<div class="layui-col-xs12 layui-col-sm4 layui-col-md3 layui-col-lg2">
+								<select name="active">
+									<option value="-1" >筛选状态</option>
+									<option value="0">可用</option>
+									<option value="1">已使用</option>
+								</select>
+							</div>
+
+							<div class="layui-inline layui-col-xs12 layui-col-sm4 layui-col-md3 layui-col-lg2">
+								<button lay-submit class="layui-btn" lay-filter="search">查询</button>
+							</div>
+						</div>
+                        <table class="layui-table" id="table" lay-filter="table"></table>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+            function createTime(v) {
+                var date = new Date();
+                date.setTime(parseInt(v) * 1000);
+                var y = date.getFullYear();
+                var m = date.getMonth() + 1;
+                m = m < 10 ? '0' + m : m;
+                var d = date.getDate();
+                d = d < 10 ? ("0" + d) : d;
+                var h = date.getHours();
+                h = h < 10 ? ("0" + h) : h;
+                var M = date.getMinutes();
+                M = M < 10 ? ("0" + M) : M;
+                var s = date.getSeconds();
+                s = s < 10 ? ("0" + s) : s;
+                var str = y + "-" + m + "-" + d + " " + h + ":" + M + ":" + s;
+                return str;
+            }
+            </script>
+            <script type="text/html" id="addtime">
+                {{ createTime(d.addtime) }}
+            </script>
+            <script type="text/html" id="status">
+                {{# if(d.active >0){ }}
+                <span class="layui-badge layui-bg-gray">已使用</span>
+                {{# } else { }}
+                <span class="layui-badge layui-bg-green">可用</span>
+                {{# } }}
+            </script>
+            <script type="text/html" id="opt">
+				<a data-href="/member/productscard/delete/?id={{d.id}}" class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
+            </script>
+        </div>
+    </div>
+</div>
+</div>
+<!--引入公共底文件-->
+<?php include COMMON_PATH.'/footer.html';?>
+<script>
+layui.use('memberproductscard');
+</script>
