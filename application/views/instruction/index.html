@@ -1,21 +1,29 @@
 <?php include COMMON_PATH.'/header.html';?>
 <div class="layui-container fly-marginTop fly-user-main">
     <div class="layui-row">
-		<!-- 公告-->
-		<?php if(isset($config['notice']) AND $config['notice']):?>
-		<blockquote class="layui-elem-quote layui-text" style="background-color: #ffffff;">
-			<i class="layui-icon layui-icon-speaker"></i><?php echo $config['notice'];?>
-		</blockquote>
-		<?php endif;?>
+		<div class="site-content">
+			<h1 class="site-h1">开始使用 - 入门指南</h1>
+			<blockquote class="layui-elem-quote">
+				本系统旨在帮助有支付需求的朋友，搭建自用型知识付费平台，然后使用在自有网站、博客上进行付费知识销售。
+			</blockquote>
 
-        <div class="fly-panel">
-            <div class="fly-area">
-				<div class="title"><h2>最方便的知识付费平台</h2></div>
-				<div class="description"><p>无需自建平台，一行代码轻松搞定。<a href="/demo" title="查看演示">查看演示</a></p></div>
-                <div class="snapshot"><img src="/res/images/pay_snapshot.jpg"/></div>
-            </div>
-        </div>
-		
+			<div class="snapshot"><img src="/res/images/pay_snapshot.jpg"/></div>
+			
+			<fieldset class="layui-elem-field layui-field-title site-title">
+			  <legend><a name="compatibility">特别说明</a></legend>
+			</fieldset>
+			
+			<blockquote class="layui-elem-quote" style="text-align: center;">
+			  能看到本页面，说明你已经掌握了本系统的基础环境安装过程；但请注意，本系统如果高效运行，建议您部署并开启redis服务；
+			</blockquote>
+			
+			
+
+			
+			<div class="layui-elem-quote">
+				<p>ZSPAY - 用心与你沟通</p>
+			</div>
+		  </div>
     </div>
 </div>
 <!--引入公共底文件-->
